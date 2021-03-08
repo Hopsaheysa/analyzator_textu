@@ -5,13 +5,14 @@ hesla = {"bob": "123", "ann": "pass123", "mike": "password123", "liz": "pass123"
 # zadání už. jména a hesla = 3 pokusy
 pokus = 0
 while hesla.get(jmeno) != heslo:
+    if pokus == 2:
+        print("Uživatelské jméno nebo heslo byly zadány 3x chybně. Přístup byl odepřen!")
+        exit()
     print("Uživatelské jméno nebo heslo byly zadány chybně.")
     jmeno = input("Prosím zadejte uživatelské jméno: ")
     heslo = input("Prosím zadejte heslo: ")
     pokus += 1
-    if pokus == 2:
-        print("Uživatelské jméno nebo heslo byly zadány 3x chybně. Přístup byl odepřen!")
-        exit()
+
 
 print("=" * 120)
 print(f"Vítejte v analyzátoru textu, {jmeno}!")
@@ -83,7 +84,7 @@ pomocna_lower = 0
 pomocna_num = 0
 pomocna_cislo = 0
 
-# V tomto případě můžeme použít jeden for pro více ifů protože se navzájem vylučují
+# V tomto případě můžeme použít jeden for pro více ifů protože se navzájem vylučujíbob
 # pro přidávání dalších if na to dej pozor a popřípadě je rozděl do více fórů
 for pomocna in vycistena_slova:
     if pomocna.istitle():
@@ -114,7 +115,7 @@ for delka in vycistena_slova:
 
 
 
-#tištění grafíku a přidání do slovníku nul
+# tištění grafíku a přidání do slovníku nul
 nejpocetnejsi = max(slovnik_slov.values())
 print("DÉLKA |", "ZNÁZORNĚNÍ".center(nejpocetnejsi), "| POČET")
 
